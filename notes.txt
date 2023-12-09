@@ -1,0 +1,13 @@
+Issues:
+
+- track component conditional rendering 
+
+
+
+commit
+
+create static components . add functionality to: pass search results down and render results list; pass playlist down to tracklist; add and remove tracks to playlist and change playlist name; 
+
+
+
+link search bar with spotify search

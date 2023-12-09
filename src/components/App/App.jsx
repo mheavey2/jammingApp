@@ -3,6 +3,7 @@ import Playlist from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import styles from "./App.module.css";
+import Spotify from "../../util/Spotify";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -38,6 +39,7 @@ function App() {
       return;
     }
     const urisArray = playlistTracks.map((track) => track.uri);
+    Spotify.createPlaylist;
   };
 
   return (
