@@ -1,11 +1,33 @@
+import Track from "../Track/Track";
 import styles from "./tracklist.module.css";
 
-function Tracklist() {
-  return (
-    <div className={styles.tracklist}>
-      {/* map method to render a set of Track components */}
-    </div>
-  );
+function Tracklist(props) {
+  if (props.tracks.length > 0) {
+    return (
+      <div className={styles.tracklistContainer}>
+        {/* map method to render a set of Track components */}
+        {props.tracks.map((track) => {
+          return (
+            <Track
+              key={track.id}
+              track={track}
+              onAdd={props.onAdd}
+              onRemove={props.onRemove}
+              isRemoval={props.isRemoval}
+            />
+          );
+        })}
+      </div>
+    );
+  } else {
+    return (
+      <div className={styles.emptyStateContainer}>
+        {/* placeholder to be removed */}
+        <h2>Tracklist component placeholder</h2>
+        <h3 className={styles.emptyStateResults}>{props.emptyState}</h3>
+      </div>
+    );
+  }
 }
 
 export default Tracklist;

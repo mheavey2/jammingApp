@@ -33,31 +33,30 @@ const Spotify = {
   },
 
   //   fetch the data we're searching from the API.
-  search(term) {
+  async search(term) {
     // first get access token
     const accessToken = Spotify.getAccessToken();
 
     //use this to fetch data searched for
-    return fetch(`${searchBaseURL}${searchTrackQuery}${term}`, {
+    const response = await fetch(`${searchBaseURL}${searchTrackQuery}${term}`, {
       headers: { Authorization: `Bearer ${accessToken}` },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonResponse) => {
-        // if there's no tracks returned, return an empty array
-        if (!jsonResponse.tracks) {
-          return [];
-        }
-        // otherwise return an object with the following for each track
-        return jsonResponse.tracks.items.map((tracks) => ({
-          id: tracks.id,
-          name: tracks.name,
-          artist: tracks.artists[0].name,
-          album: tracks.album.name,
-          uri: tracks.uri,
-        }));
-      });
+    });
+    const jsonResponse = await response.json();
+    // if there's no tracks returned, return an empty array
+    if (!jsonResponse.tracks) {
+      return [];
+    }
+    return jsonResponse.tracks.items.map((tracks) => ({
+      id: tracks.id,
+      name: tracks.name,
+      artist: tracks.artists[0].name,
+      album: tracks.album.name,
+      uri: tracks.uri,
+    }));
+  },
+
+  createPlaylist() {
+    //create playlist method
   },
 };
 

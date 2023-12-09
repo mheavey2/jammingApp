@@ -1,0 +1,17 @@
+.tracklistContainer {
+  background-color: #dbb51d;
+}
+
+.emptyStateContainer {
+  width: 85%;
+  height: 80%;
+  background-color: #ff69b4;
+}
+
+.emptyStateResults {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.25;
+  color: #ff7f50;
+  font-style: italic;
+}

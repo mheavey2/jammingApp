@@ -1,12 +1,12 @@
-// import styles from "./SearchResults.css";
+import styles from "./searchResults.module.css";
+import Tracklist from "../Tracklist/Tracklist";
 
-function SearchResults() {
+function SearchResults(props) {
   return (
-    <>
-      <div>
-        <h2>Results</h2>
-      </div>
-    </>
+    <div className={styles.searchResultsContainer}>
+      <h2>Search Results</h2>
+      <Tracklist tracks={props.searchResults} />
+    </div>
   );
 }
 
