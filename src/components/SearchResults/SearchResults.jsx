@@ -4,7 +4,7 @@ import Tracklist from "../Tracklist/Tracklist";
 function SearchResults(props) {
   return (
     <div className={styles.searchResultsContainer}>
-      <h2>Search Results</h2>
+      <h2>Top Ten Search Results</h2>
       <Tracklist tracks={props.searchResults} />
     </div>
   );

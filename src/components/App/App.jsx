@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Playlist from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
@@ -10,7 +10,29 @@ function App() {
   const [playlistName, setListName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [isRemoval, setIsRemoval] = useState(false);
+  const [logged, setLogged] = useState(false);
+  const [userName, setUserName] = useState("");
 
+  useEffect(() => {
+    //check authentication
+    const authenticated = Spotify.checkAuthentication();
+    if (authenticated) {
+      Spotify.getUserName()
+        .then((fetchName) => {
+          setUserName(fetchName);
+          setLogged(authenticated);
+        })
+        .catch((error) => {
+          console.log("Error fetching username: ", error);
+        });
+    } else {
+      console.log("Login Failed");
+    }
+  }, []);
+
+  const loginHandler = () => {
+    Spotify.getAuth();
+  };
   //check if current song is in playlist and, if not, add it to playlist
   const addTrack = (track) => {
     if (playlistTracks.some((savedTrack) => savedTrack.id === track.id)) return;
@@ -42,13 +64,39 @@ function App() {
     Spotify.createPlaylist;
   };
 
+  // search for track
+
+  const search = (searchInput) => {
+    Spotify.searchTracks(searchInput)
+      .then((tracksArray) => {
+        setSearchResults(tracksArray);
+      })
+      .catch((error) => {
+        console.log("Error searching tracks: ", error);
+      });
+    console.log(searchInput);
+  };
+
   return (
     <>
       <h1>Jamming App</h1>
       <div className={styles.container}>
+        {/* <div className={styles.howToContainer}>
+          <ol>
+            <li>Login to your Spotify account</li>
+            <li>Search for track name</li>
+            <li>View the top 10 results for your search</li>
+            <li>Add them to a custom playlist</li>
+            <li>Save your new playlist to your Spotify account</li>
+          </ol>
+        </div> */}
+        {/* Spotify Login */}
+        <button className={styles.loginButton} onClick={loginHandler}>
+          Login to Spotify
+        </button>
         {/* Search Section */}
         <div className={styles.searchContainer}>
-          <SearchBar />
+          <SearchBar onSearch={search} />
         </div>
         {/* Results Section */}
         <div className={styles.resultsContainer}>
@@ -62,6 +110,7 @@ function App() {
             onRemove={removeTrack}
             isRemoval={isRemoval}
             onChangeName={changePlaylistName}
+            onSave={savePlaylist}
           />
         </div>
       </div>
