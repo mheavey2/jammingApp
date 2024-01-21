@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import other components
 import Playlist from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
@@ -6,6 +7,7 @@ import styles from "./App.module.css";
 import Spotify from "../../util/Spotify";
 
 function App() {
+  // declare state constants
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setListName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -13,6 +15,7 @@ function App() {
   const [logged, setLogged] = useState(false);
   const [userName, setUserName] = useState("");
 
+  // TODO define purpose of this useEffect
   useEffect(() => {
     //check authentication
     const authenticated = Spotify.checkAuthentication();
