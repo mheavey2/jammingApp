@@ -6,11 +6,13 @@ const searchBaseURL = "https://api.spotify.com/v1/search?q=";
 // const searchTrackQuery = "?type=track&q=";
 
 const Spotify = {
+  // need access token to search Spotify.
   getAuth() {
     const tokenURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
     window.location = tokenURL;
     console.log("authentication gotten");
   },
+  // TODO redundant code remove
   // need access token to search Spotify. so need to check if this is already set, if not get it from the url, if its there, or if neither of these, redirect the user to the authentication page
 
   // getAccessToken() {
@@ -54,22 +56,14 @@ const Spotify = {
       const expiresIn = Number(urlExpiresIn[1]);
       console.log(`Expires in: ${expiresIn} ms`);
 
-      //   set access token to empty variable after duration specified in the url
-      const timeout = window.setTimeout(
-        () => (accessToken = ""),
-        expiresIn * 100000
-      );
-      console.log(`Timeout set to: ${timeout}`);
-      // //   clear parameters from URL so app doesn't try grabbing access token after it has expired
-      window.history.pushState("Access Token", null, "/");
-      console.log("Authenticated");
-      return true;
-    } else {
-      console.log("Authentication failed");
-      return false;
+      // set access token to empty variable after duration specified in the url so app doesn't try grabbing access token after it has expired
+      window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
+      window.history.pushState("Access token", null, "/");
+      return accessToken;
     }
   },
 
+  // get user name data from Spotify
   getUserName() {
     if (!accessToken) {
       return Promise.reject(new Error("Access token is missing"));
@@ -95,7 +89,7 @@ const Spotify = {
       });
   },
 
-  //   fetch the data we're searching from the API.
+  // fetch the song track data we're searching from the API.
   async searchTracks(searchInput) {
     // first get access token
     //const accessToken = Spotify.getAuth();
@@ -121,6 +115,7 @@ const Spotify = {
       });
   },
 
+  // TODO remove redundant code
   /*
     const jsonResponse = await response.json();
     // if there's no tracks returned, return an empty array
@@ -139,8 +134,12 @@ const Spotify = {
   },
   */
 
-  createPlaylist() {
-    //create playlist method
+  //create playlist in Spotify
+  createPlaylist(playlistName, urisArray) {
+    const createPlaylistURL = `https://api.spotify.com/v1/users/${userId}/playlists`;
+    const playlistData = {
+      name: playlistName,
+    };
   },
 };
 

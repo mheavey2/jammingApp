@@ -5,3 +5,17 @@
 .trackAction {
   background-color: #e0ffff;
 }
+
+/* TODO: modify */
+.trackSaveButton {
+  width: 12em;
+  height: 3em;
+  border: none;
+  font-size: 1em;
+  font-weight: 600;
+  /* line-height: 1.2; */
+  color: black;
+  cursor: pointer;
+  /* margin-right: 1.07vw; */
+  background-color: red;
+}

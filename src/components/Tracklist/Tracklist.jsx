@@ -11,9 +11,9 @@ function Tracklist(props) {
             <Track
               key={track.id}
               track={track}
-              onAdd={props.onAdd}
-              onRemove={props.onRemove}
-              isRemoval={props.isRemoval}
+              trackBtnAction={props.trackBtnAction}
+              onClick={props.onClick}
+              inPlaylist={props.inPlaylist}
             />
           );
         })}
