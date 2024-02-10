@@ -9,9 +9,9 @@ import Spotify from "../../util/Spotify";
 function App() {
   // declare state constants
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setListName] = useState("");
+  const [playlistName, setPlayistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [isRemoval, setIsRemoval] = useState(false);
+
   const [logged, setLogged] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -55,7 +55,6 @@ function App() {
     if (playlistTracks.some((savedTrack) => savedTrack.id === track.id)) return;
 
     setPlaylistTracks((prev) => [...prev, track]);
-    setIsRemoval(true);
   };
 
   //remove track from playlist
@@ -63,13 +62,12 @@ function App() {
     setPlaylistTracks((prevTracks) =>
       prevTracks.filter((currentTrack) => currentTrack.id !== track.id)
     );
-    setIsRemoval(false);
   };
 
   // update the playlist name
 
   const changePlaylistName = (name) => {
-    setListName(name);
+    setPlayistName(name);
   };
 
   //save playlist to user's spotify account
@@ -78,8 +76,20 @@ function App() {
       return;
     }
     const urisArray = playlistTracks.map((track) => track.uri);
-    Spotify.createPlaylist;
+    Spotify.createPlaylist(playlistName, urisArray)
+      .then((res) => {
+        if (res) {
+          alert("Playlist saved successfully");
+          setPlaylistTracks([]);
+          setPlayistName("");
+        }
+      })
+      .catch((error) => {
+        console.log("Error saving PLaylist: ", error);
+      });
   };
+
+  // if user is not logged in to Spotify this is the view they will see
   if (!logged) {
     return (
       // {/* whats returned if not logged in to spotify */}
@@ -94,20 +104,11 @@ function App() {
       </main>
     );
   } else {
+    // if user is logged in to Spotify this is the view they will see
     return (
       <>
         <h1>Jammin App</h1>
         <div className={styles.container}>
-          {/* <div className={styles.howToContainer}>
-          <ol>
-            <li>Login to your Spotify account</li>
-            <li>Search for track name</li>
-            <li>View the top 10 results for your search</li>
-            <li>Add them to a custom playlist</li>
-            <li>Save your new playlist to your Spotify account</li>
-          </ol>
-        </div> */}
-
           <div className={styles.mainContainer}>
             <h2>Hello {userName}</h2>
             <p>
@@ -128,7 +129,6 @@ function App() {
                 playlistName={playlistName}
                 playlistTracks={playlistTracks}
                 onRemove={removeTrack}
-                isRemoval={isRemoval}
                 onChangeName={changePlaylistName}
                 onSave={savePlaylist}
               />

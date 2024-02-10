@@ -12,35 +12,6 @@ const Spotify = {
     window.location = tokenURL;
     console.log("authentication gotten");
   },
-  // TODO redundant code remove
-  // need access token to search Spotify. so need to check if this is already set, if not get it from the url, if its there, or if neither of these, redirect the user to the authentication page
-
-  // getAccessToken() {
-  //using Implicit Grant flow, check url and get access token
-  //const urlAccessToken = window.location.href.match(/access_token=([^&]*)/);
-  //const urlExpiresIn = window.location.href.match(/expires_in=([^&]*)/);
-  // check if the access token is already set, return it's value if it is.
-  // if (accessToken) {
-  //   console.log(accessToken);
-
-  //   return accessToken;
-  // }
-
-  //   if (urlAccessToken && urlExpiresIn) {
-  //     accessToken = urlAccessToken[1];
-  //     const expiresIn = Number(urlExpiresIn[1]);
-  //     //   set access token to empty variable after duration specified in the url
-  //     window.setTimeout(() => (accessToken = ""), expiresIn * 100000);
-  //     //   clear parameters from URL so app doesn't try grabbing access token after it has expired
-  //     window.history.pushState("Access Token", null, "/");
-  //   } else {
-  //     console.log("getting access token didnt work");
-  //     //   if access token is empty user is redirected to this authentication page
-  //     const redirect = `https://accounts.spotify.com/autorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
-
-  //     window.location = redirect;
-  //   }
-  // },
 
   checkAuthentication() {
     //check if access token already available
@@ -115,31 +86,44 @@ const Spotify = {
       });
   },
 
-  // TODO remove redundant code
-  /*
-    const jsonResponse = await response.json();
-    // if there's no tracks returned, return an empty array
-    if (!jsonResponse.tracks) {
-      console.log("no results");
-      return [];
-    }
-    return jsonResponse.tracks.items.map((tracks) => ({
-      id: tracks.id,
-      name: tracks.name,
-      artist: tracks.artists[0].name,
-      album: tracks.album.name,
-      image: tracks.album.image[0].url,
-      uri: tracks.uri,
-    }));
-  },
-  */
-
   //create playlist in Spotify
   createPlaylist(playlistName, urisArray) {
     const createPlaylistURL = `https://api.spotify.com/v1/users/${userId}/playlists`;
     const playlistData = {
       name: playlistName,
     };
+    return fetch(createPlaylistURL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(playlistData),
+    })
+      .then((data) => {
+        const playlistId = data.id;
+        const tracksToAdd = {
+          uris: urisArray,
+        };
+
+        const addTracksURL = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+        return fetch(addTracksURL, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(tracksToAdd),
+        });
+      })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result) {
+          return true;
+        } else {
+          return false;
+        }
+      });
   },
 };
 

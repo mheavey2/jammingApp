@@ -19,14 +19,17 @@ function Playlist(props) {
         />
       </div>
       <Tracklist
+        trackBtnAction="Remove from Playlist"
         tracks={props.playlistTracks}
         emptyState="Playlist empty. Add tracks from the search results."
-        onRemove={props.onRemove}
-        isRemoval={true}
+        onClick={props.onRemove}
+        inPlaylist={true}
       />
-      <button className={styles.playlistButton} onClick={props.onSave}>
-        Save to Spotify
-      </button>
+      <div className={styles.saveToSpotifyContainer}>
+        <button onClick={props.onSave} className={styles.saveToSpotifyButton}>
+          Save to Spotify
+        </button>
+      </div>
     </div>
   );
 }
