@@ -10,6 +10,7 @@ function Playlist(props) {
   return (
     <div className={styles.playlistContainer}>
       <h2>Your Playlist</h2>
+
       <div className={styles.playlistNameContainer}>
         <input
           type="text"
@@ -27,7 +28,8 @@ function Playlist(props) {
       />
       <div className={styles.saveToSpotifyContainer}>
         <button onClick={props.onSave} className={styles.saveToSpotifyButton}>
-          Save to Spotify
+          {/* TODO: add styling to span */}
+          Save <span>{props.playlistName}</span> to Spotify
         </button>
       </div>
     </div>

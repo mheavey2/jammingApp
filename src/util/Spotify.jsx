@@ -28,7 +28,7 @@ const Spotify = {
       console.log(`Expires in: ${expiresIn} ms`);
 
       // set access token to empty variable after duration specified in the url so app doesn't try grabbing access token after it has expired
-      window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
+      window.setTimeout(() => (accessToken = ""), expiresIn * 100000);
       window.history.pushState("Access token", null, "/");
       return accessToken;
     }
@@ -47,7 +47,7 @@ const Spotify = {
       },
     })
       .then((response) => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           return response.json();
         } else {
           throw new Error("Failed to fetch user data");
@@ -55,7 +55,9 @@ const Spotify = {
       })
       .then((data) => {
         const userName = data.display_name;
+        //console.log(`user name is: ${userName}`);
         userId = data.id;
+        //console.log(`user ID is: ${userId}`);
         return userName;
       });
   },
@@ -87,11 +89,12 @@ const Spotify = {
   },
 
   //create playlist in Spotify
-  createPlaylist(playlistName, urisArray) {
+  createPlaylist(listName, urisArray) {
     const createPlaylistURL = `https://api.spotify.com/v1/users/${userId}/playlists`;
     const playlistData = {
-      name: playlistName,
+      name: listName,
     };
+
     return fetch(createPlaylistURL, {
       method: "POST",
       headers: {
@@ -100,19 +103,32 @@ const Spotify = {
       },
       body: JSON.stringify(playlistData),
     })
+      .then((response) => {
+        if (response.status === 201) {
+          // TODO: remove console log
+          console.log("playlist created");
+          return response.json();
+        } else {
+          throw new Error("Failed to create playlist");
+        }
+      })
       .then((data) => {
-        const playlistId = data.id;
+        const playlist_id = data.id;
         const tracksToAdd = {
           uris: urisArray,
         };
-
-        const addTracksURL = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+        // TODO: remove console log
+        console.log(`playlist ID is: ${playlist_id}`);
+        const addTracksURL = `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`;
+        // TODO: remove console log
+        // console.log(`access token: ${accessToken}`);
         return fetch(addTracksURL, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${accessToken}`,
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify(tracksToAdd),
         });
       })
