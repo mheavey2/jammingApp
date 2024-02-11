@@ -76,6 +76,7 @@ function App() {
       return;
     }
     const urisArray = playlistTracks.map((track) => track.uri);
+    console.log(`uriARRAY: {urisArray}`);
 
     Spotify.createPlaylist(playlistName, urisArray)
       .then((res) => {
