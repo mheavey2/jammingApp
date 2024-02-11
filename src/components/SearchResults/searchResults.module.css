@@ -1,0 +1,18 @@
+/* 
+App colour scheme
+
+Slate Blue:  #6a5acd
+blue-magenta: #433BFF
+Persian blue: #2538be
+Violet:  #49306b
+Indigo: #4b0082
+lilac:  #646cff
+
+*/
+.searchResultsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

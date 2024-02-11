@@ -1,11 +1,26 @@
+/* 
+App colour scheme
+
+Slate Blue:  #6a5acd
+blue-magenta: #433BFF
+Persian blue: #2538be
+Violet:  #49306b
+Indigo: #4b0082
+lighter indigo: #5b1092
+lilac:  #646cff
+black: #1a1a1a
+orange: 
+
+*/
+
 .tracklistContainer {
-  background-color: #dbb51d;
+  margin: 1.9em;
 }
 
 .emptyStateContainer {
-  width: 85%;
+  width: 75%;
   height: 80%;
-  background-color: #ff69b4;
+  padding: 0 em;
 }
 
 .emptyStateResults {

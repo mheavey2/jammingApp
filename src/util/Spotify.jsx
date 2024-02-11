@@ -3,7 +3,6 @@ let userId;
 const CLIENT_ID = "b6e93f31f6e9459ba0b249e65cae275a";
 const REDIRECT_URI = "http://localhost:5173";
 const searchBaseURL = "https://api.spotify.com/v1/search?q=";
-// const searchTrackQuery = "?type=track&q=";
 
 const Spotify = {
   // need access token to search Spotify.
@@ -64,9 +63,6 @@ const Spotify = {
 
   // fetch the song track data we're searching from the API.
   async searchTracks(searchInput) {
-    // first get access token
-    //const accessToken = Spotify.getAuth();
-    // Spotify.checkAuthentication();
     const searchEndpoint = `${searchBaseURL}${searchInput}&type=track&limit=10`;
     //use this to fetch data searched for
     return fetch(searchEndpoint, {
@@ -105,7 +101,6 @@ const Spotify = {
     })
       .then((response) => {
         if (response.status === 201) {
-          // TODO: remove console log
           console.log("playlist created");
           return response.json();
         } else {
@@ -117,10 +112,10 @@ const Spotify = {
         const tracksToAdd = {
           uris: urisArray,
         };
-        // TODO: remove console log
-        console.log(`playlist ID is: ${playlist_id}`);
+
+        //  console.log(`playlist ID is: ${playlist_id}`);
         const addTracksURL = `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`;
-        // TODO: remove console log
+
         // console.log(`access token: ${accessToken}`);
         return fetch(addTracksURL, {
           method: "POST",

@@ -5,6 +5,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import styles from "./App.module.css";
 import Spotify from "../../util/Spotify";
+import jamminLogo from "./images/headphonesLogo.png";
+import recordsLogo from "./images/records.png";
 
 function App() {
   // declare state constants
@@ -15,7 +17,7 @@ function App() {
   const [logged, setLogged] = useState(false);
   const [userName, setUserName] = useState("");
 
-  // TODO define purpose of this useEffect
+  // define what the app needs to do after Render
   useEffect(() => {
     //check authentication
     const authenticated = Spotify.checkAuthentication();
@@ -95,8 +97,13 @@ function App() {
   if (!logged) {
     return (
       // {/* whats returned if not logged in to spotify */}
-      <main>
+      <main className={styles.notLoggedContainer}>
         <section className={styles.loginHeader}>
+          <img
+            src={jamminLogo}
+            alt="Jammin Logo"
+            className={styles.jamminLoginLogo}
+          />
           <h1>Jammin App</h1>
           {/* Spotify Login */}
           <button className={styles.loginButton} onClick={loginHandler}>
@@ -109,18 +116,34 @@ function App() {
     // if user is logged in to Spotify this is the view they will see
     return (
       <>
-        <h1>Jammin App</h1>
         <div className={styles.container}>
-          <div className={styles.mainContainer}>
-            <h2>Hello {userName}</h2>
+          <div className={styles.welcomeContainer}>
+            <img
+              src={jamminLogo}
+              className={styles.jamminLoginLogo}
+              alt="Image of two records"
+            />
+            <h2>
+              Hello <span>{userName}</span>
+            </h2>
+
+            <p>Welcome to the Jammin App.</p>
             <p>
-              Welcome to the Jammin App. When you are ready, use the search bar
-              to find songs to add to your new playlist
+              When you are ready, use the search bar to find songs to add to
+              your new playlist
             </p>
+            <img
+              src={recordsLogo}
+              alt="Two Records side by side"
+              className={styles.recordsLogo}
+            />
             {/* Search Section */}
             <div className={styles.searchContainer}>
               <SearchBar onSearch={search} />
             </div>
+          </div>
+
+          <div className={styles.mainContainer}>
             {/* Results Section */}
             <div className={styles.resultsContainer}>
               <SearchResults searchResults={searchResults} onAdd={addTrack} />

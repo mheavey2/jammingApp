@@ -1,23 +1,38 @@
-.inputField {
+/* 
+App colour scheme
+
+Slate Blue:  #6a5acd
+blue-magenta: #433BFF
+Persian blue: #2538be
+Violet:  #49306b
+Indigo: #4b0082
+lilac:  #646cff
+orange:  #ff7f50
+*/
+
+.searchBar {
+  width: 100%;
+  display: flex;
+}
+
+.searchBar input {
+  width: 100%;
+  margin: 1em;
+  color: #2538be;
   background-color: #f8f7ff;
-  padding: 7px;
+  padding: 0.7em;
 }
 
 .searchBtn {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border-radius: 3em;
+  width: 12em;
+  border: none;
+  margin: 1em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #2538be;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #646cff;
 }

@@ -1,59 +1,113 @@
+/* 
+App colour scheme
+
+Slate Blue:  #6a5acd
+blue-magenta: #433BFF
+Persian blue: #2538be
+Violet:  #49306b
+Indigo: #4b0082
+lilac:  #646cff
+*/
+
+* {
+  box-sizing: border-box;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+/* not logged view */
 
-.loginButton {
-  align-self: center;
-  padding: 1.75em;
-  font-size: 1.5em;
-  font-weight: 750;
-  border-radius: 45%;
-  border-style: none;
-}
-.loginButton :hover {
-  /* TODO: update color */
-  /* background-color: aquamarine; */
-}
-
-.mainContainer {
-  display: flex;
-  flex-direction: row;
-  /* display: none; */
-  justify-content: space-between;
-  margin-top: 3rem;
-}
-
-.container {
+.loginHeader {
   display: flex;
   flex-direction: column;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #4b0082;
+  width: 50%;
+  margin: 15% 25%;
+}
+.jamminLoginLogo {
+  width: 10em;
+  height: 10em;
+}
+.loginButton {
+  align-self: center;
+  padding: 1.5em;
+  font-size: 1.5em;
+  font-weight: 750;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  border-style: none;
+  background-color: #2538be;
+  height: 4em;
+  width: 12em;
+  margin: 3em;
 }
 
+/* logged in view */
+
+/* outer container */
+.container {
+  width: 95%;
+}
+.recordsLogo {
+  width: 6em;
+  height: 6em;
+  margin-top: 2em;
+}
 h1 {
   text-align: center;
   font-size: 3.2em;
   line-height: 1.1;
 }
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: 600;
+}
+.welcomeContainer p {
+  color: #3f59ce;
+}
+
+.welcomeContainer span {
+  color: #433bff;
+  font-size: 3em;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0;
+  color: #ff7f50;
+}
 .searchContainer {
   background-color: #4b0082;
-  padding: 25px;
+  padding: 5px;
   display: flex;
-  place-content: center;
-
-  max-width: 30%;
+  margin: 3em;
+  width: 55%;
+}
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .resultsContainer {
-  background-color: #910aff;
+  background-color: #49306b;
   padding: 25px;
-  max-width: 30%;
   display: flex;
-  place-content: center;
+  margin: 3.75em 4em;
+  max-width: 80%;
 }
 
 .playlistContainer {
-  background-color: #49306b;
+  max-width: 80%;
+  margin: 3.75em;
 }

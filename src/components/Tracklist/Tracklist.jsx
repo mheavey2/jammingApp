@@ -22,8 +22,6 @@ function Tracklist(props) {
   } else {
     return (
       <div className={styles.emptyStateContainer}>
-        {/* placeholder to be removed */}
-        <h2>Tracklist component placeholder</h2>
         <h3 className={styles.emptyStateResults}>{props.emptyState}</h3>
       </div>
     );

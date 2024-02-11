@@ -1,21 +1,48 @@
+/* 
+App colour scheme
+
+Slate Blue:  #6a5acd
+blue-magenta: #433BFF
+Persian blue: #2538be
+Violet:  #49306b
+Indigo: #4b0082
+lilac:  #646cff
+*/
+
 .trackContainer {
-}
-.trackInfo {
-}
-.trackAction {
-  background-color: #e0ffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
 }
 
-/* TODO: modify */
+.trackImage {
+  max-height: 5em;
+  max-width: 5em;
+  margin: 0.25em;
+}
+.trackContent {
+  display: flex;
+  align-items: center;
+}
+.trackInfo {
+  margin: 0.3em;
+}
+
+.trackInfo h3 {
+  font-size: 1em;
+}
+.trackInfo p {
+  font-size: 0.6em;
+}
+
 .trackSaveButton {
-  width: 12em;
-  height: 3em;
+  width: 5em;
+  height: 0.7em;
   border: none;
   font-size: 1em;
-  font-weight: 600;
-  /* line-height: 1.2; */
-  color: black;
+  font-weight: 900;
+  padding: 0 0 1.2em;
   cursor: pointer;
-  /* margin-right: 1.07vw; */
-  background-color: red;
+  background-color: #2538be;
 }

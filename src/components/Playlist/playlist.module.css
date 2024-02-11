@@ -1,17 +1,59 @@
+/* 
+App colour scheme
+
+Slate Blue:  #6a5acd
+blue-magenta: #433BFF
+Persian blue: #2538be
+Violet:  #49306b
+Indigo: #4b0082
+lilac:  #646cff
+black: #1a1a1a
+
+*/
+
 .playlistContainer {
-  background-color: #6a5acd;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #49306b;
+  align-items: center;
+  justify-content: center;
 }
-
-.playlistButton {
-  background-color: #72ddf7;
-  border-radius: 20px;
-  border: 3px solid transparent;
-  padding: 0.6em 1.2em;
-  margin: 2rem;
+.playlistContainer span {
+  color: #ff7f50;
 }
-
-input {
+.playlistNameContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.playlistNameContainer input {
   background-color: #ffffff;
-  padding: 10px;
-  color: #f7567c;
+  padding: 0.75em;
+  width: 50%;
+  color: #2538be;
+}
+.saveToSpotifyContainer {
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+.saveToSpotifyButton {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5em 2em 2.5em;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 1em 5em;
+  background-color: #2538be;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 50%;
+  height: 3em;
+}
+
+.saveToSpotifyButton span {
+  color: #ff7f50;
+  font-weight: 600;
+  font-size: 1em;
 }

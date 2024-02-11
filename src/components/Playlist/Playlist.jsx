@@ -9,7 +9,9 @@ function Playlist(props) {
 
   return (
     <div className={styles.playlistContainer}>
-      <h2>Your Playlist</h2>
+      <h2>
+        Your Playlist <span>{props.playlistName}</span>
+      </h2>
 
       <div className={styles.playlistNameContainer}>
         <input
@@ -20,7 +22,7 @@ function Playlist(props) {
         />
       </div>
       <Tracklist
-        trackBtnAction="Remove from Playlist"
+        trackBtnAction="Remove"
         tracks={props.playlistTracks}
         emptyState="Playlist empty. Add tracks from the search results."
         onClick={props.onRemove}
@@ -28,8 +30,7 @@ function Playlist(props) {
       />
       <div className={styles.saveToSpotifyContainer}>
         <button onClick={props.onSave} className={styles.saveToSpotifyButton}>
-          {/* TODO: add styling to span */}
-          Save <span>{props.playlistName}</span> to Spotify
+          Save <span> {props.playlistName} </span> to Spotify
         </button>
       </div>
     </div>
