@@ -1,7 +1,7 @@
 let accessToken;
 let userId;
 const CLIENT_ID = "b6e93f31f6e9459ba0b249e65cae275a";
-const REDIRECT_URI = "http://localhost:5173";
+const REDIRECT_URI = "https://jammin-music-app.netlify.app";
 const searchBaseURL = "https://api.spotify.com/v1/search?q=";
 
 const Spotify = {
