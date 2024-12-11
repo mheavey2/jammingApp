@@ -1,13 +1,14 @@
 let accessToken;
 let userId;
-const CLIENT_ID = "b6e93f31f6e9459ba0b249e65cae275a";
+// vite uses 'import.meta.env' rather than 'process.env'
+const clientId = import.meta.env.CLIENT_ID;
 const REDIRECT_URI = "https://jammin-music-app.netlify.app";
 const searchBaseURL = "https://api.spotify.com/v1/search?q=";
 
 const Spotify = {
   // need access token to search Spotify.
   getAuth() {
-    const tokenURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
+    const tokenURL = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
     window.location = tokenURL;
     console.log("authentication gotten");
   },
