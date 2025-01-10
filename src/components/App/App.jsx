@@ -83,7 +83,7 @@ function App() {
     Spotify.createPlaylist(playlistName, urisArray)
       .then((res) => {
         if (res) {
-          // alert("Playlist saved successfully");
+          alert("Playlist saved successfully");
           setPlaylistTracks([]);
           setPlayistName("");
         }
