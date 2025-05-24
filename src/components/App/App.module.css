@@ -9,8 +9,24 @@ Indigo: #4b0082
 lilac:  #646cff
 */
 
+/* 
+text & bkgrnd - neutral
+text: #F8F9FA
+Background: #00132D
+primary: #80FFDB (main call to actions (CTAs) & sections)
+Secondary: #64DFDF  (less nb buttons & info cards)
+Accent: #48CAE4 (appears in images, highlights, hyperlinks, boxes, cards, etc
+
+*/
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #f9f7f3;
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #root {
   max-width: 1280px;
@@ -18,6 +34,23 @@ lilac:  #646cff
   padding: 2rem;
   text-align: center;
 }
+
+/* define colours */
+:root {
+  --text: #f8f9fa;
+  --background: #00132d;
+  --primary: #80ffdb;
+  --secondary: #64dfdf;
+  --accent: #48cae4;
+}
+
+.notLoggedContainer {
+  background-color: var(--background);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
 /* not logged view */
 
 .loginHeader {
@@ -25,26 +58,84 @@ lilac:  #646cff
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #4b0082;
-  width: 50%;
-  margin: 15% 25%;
+  background-color: var(--background);
+  width: 100%;
+  margin-top: 3em;
 }
+.loginHeader h1 {
+  font-weight: 700;
+  font-size: 7em;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+span {
+  font-weight: 700;
+  font-size: 1.625em;
+}
+.firstWave {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 1s infinite; /* Animation name, duration, and infinite loop */
+}
+.secondWave {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 2s infinite; /* Animation name, duration, and infinite loop */
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0); /* Original position */
+  }
+  25% {
+    transform: translateY(-10px); /* Move up */
+  }
+  50% {
+    transform: translateY(0); /* Back to original */
+  }
+  75% {
+    transform: translateY(10px); /* Move down */
+  }
+}
+
 .jamminLoginLogo {
-  width: 10em;
-  height: 10em;
+  width: 12em;
+  height: 12em;
+  opacity: 75%;
+  border-radius: 45px;
+  margin-bottom: 4em;
 }
 .loginButton {
   align-self: center;
-  padding: 1.5em;
-  font-size: 1.5em;
-  font-weight: 750;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  border-style: none;
-  background-color: #2538be;
-  height: 4em;
+
+  font-size: 1.625em;
+  font-weight: 900;
+  border-radius: 15px;
+  border: 1px none;
+  background-color: var(--primary);
+  color: var(--background);
+  height: 3em;
   width: 12em;
   margin: 3em;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
+}
+.loginButton:hover {
+  background-color: var(--primary);
+  transform: translate(0, -3px);
+  box-shadow: 0 20px 80px -10px var(--primary);
 }
 
 /* logged in view */
