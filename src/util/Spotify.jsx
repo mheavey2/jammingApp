@@ -1,7 +1,7 @@
 let accessToken;
 let userId;
 const CLIENT_ID = "b6e93f31f6e9459ba0b249e65cae275a";
-const REDIRECT_URI = "https://jammin-music-app.netlify.app";
+const REDIRECT_URI = "http://localhost:5173/";
 const searchBaseURL = "https://api.spotify.com/v1/search?q=";
 
 const Spotify = {
@@ -27,8 +27,13 @@ const Spotify = {
       console.log(`Expires in: ${expiresIn} ms`);
 
       // set access token to empty variable after duration specified in the url so app doesn't try grabbing access token after it has expired
-      window.setTimeout(() => (accessToken = ""), expiresIn * 100000);
-      window.history.pushState("Access token", null, "/");
+      window.setTimeout(() => {
+        accessToken = "";
+        window.history.pushState("Access token", null, "/");
+        console.log(`access token after timeout is: ${accessToken}`);
+        window.location = REDIRECT_URI;
+      }, expiresIn * 4);
+
       return accessToken;
     }
   },
@@ -79,7 +84,7 @@ const Spotify = {
           image: track.album.images[0].url,
           uri: track.uri,
         }));
-        console.log(trackResults);
+        console.log(`trackResults object from spotify fetch: ${trackResults}`);
         return trackResults;
       });
   },
