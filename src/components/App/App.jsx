@@ -14,8 +14,9 @@ function App() {
   const [playlistName, setPlayistName] = useState("");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState("");
   const [userName, setUserName] = useState("");
+  const [resultsAreVisible, setResultsAreVisible] = useState(false);
 
   // define what the app needs to do after Render
   useEffect(() => {
@@ -40,6 +41,17 @@ function App() {
     Spotify.getAuth();
   };
 
+  // toggle results visibility
+  const toggleResultsVisibility = () => {
+    setResultsAreVisible((prevState) => !prevState);
+    // const resultsContainerOuter = document.querySelector(
+    //   "#resultsContainerOuter"
+    // );
+
+    // resultsContainerOuter.classList.add(`resultsContainerOuterVisible`);
+    console.log(`classList: ${resultsContainerOuter.classList}`);
+  };
+
   // search for track
   const search = (searchInput) => {
     Spotify.searchTracks(searchInput)
@@ -50,6 +62,9 @@ function App() {
         console.log("Error searching tracks: ", error);
       });
     console.log(searchInput);
+    if (searchInput) {
+      toggleResultsVisibility();
+    }
   };
 
   //check if current song is in playlist and, if not, add it to playlist
@@ -128,22 +143,23 @@ function App() {
     // if user is logged in to Spotify this is the view they will see
     return (
       <>
-        <div className={styles.container}>
-          <div className={styles.welcomeContainer}>
+        <main className={styles.loggedInContainer}>
+          <section className={styles.welcomeContainer}>
             <img
               src={jamminLogo}
               className={styles.jamminLoginLogo}
-              alt="Image of two records"
+              alt="Jammin Logo"
             />
-            <h2>
-              Hello <span>{userName}</span>
-            </h2>
 
-            <p>Welcome to the Jammin App.</p>
+            <h1>
+              Hello <span>{userName}</span>
+            </h1>
+
             <p>
               When you are ready, use the search bar to find songs to add to
               your new playlist
             </p>
+
             <img
               src={recordsLogo}
               alt="Two Records side by side"
@@ -153,9 +169,16 @@ function App() {
             <div className={styles.searchContainer}>
               <SearchBar onSearch={search} />
             </div>
-          </div>
+          </section>
 
-          <div className={styles.mainContainer}>
+          <div
+            className={
+              resultsAreVisible
+                ? styles.resultsContainerOuterVisible
+                : styles.resultsContainerOuterHidden
+            }
+            id="resultsContainerOuter"
+          >
             {/* Results Section */}
             <div className={styles.resultsContainer}>
               <SearchResults searchResults={searchResults} onAdd={addTrack} />
@@ -171,7 +194,7 @@ function App() {
               />
             </div>
           </div>
-        </div>
+        </main>
       </>
     );
   }

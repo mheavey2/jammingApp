@@ -23,10 +23,12 @@ Accent: #48CAE4 (appears in images, highlights, hyperlinks, boxes, cards, etc
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: #f9f7f3;
+
   font-family: "Merriweather Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: var(--background);
+  color: var(--text);
 }
 #root {
   max-width: 1280px;
@@ -141,13 +143,14 @@ span {
 /* logged in view */
 
 /* outer container */
-.container {
-  width: 95%;
+.loggedInContainer {
+  height: 100vh;
 }
 .recordsLogo {
   width: 6em;
   height: 6em;
   margin-top: 2em;
+  border-radius: 30px;
 }
 h1 {
   text-align: center;
@@ -161,20 +164,20 @@ h1 {
   align-items: center;
   font-weight: 600;
 }
-.welcomeContainer p {
-  color: #3f59ce;
-}
 
 .welcomeContainer span {
-  color: #433bff;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3em;
 }
 
 p {
-  font-size: 1em;
+  font-size: 1.4em;
   font-weight: 600;
-  margin: 0;
-  color: #ff7f50;
+  margin: 1.2em 0em;
+  color: var(--accent);
 }
 .searchContainer {
   background-color: #4b0082;
@@ -183,7 +186,12 @@ p {
   margin: 3em;
   width: 55%;
 }
-.mainContainer {
+/* .mainContainer {
+} */
+.resultsContainerOuterHidden {
+  display: none;
+}
+.resultsContainerOuterVisible {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
