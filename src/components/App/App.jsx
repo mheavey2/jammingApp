@@ -5,8 +5,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import styles from "./App.module.css";
 import Spotify from "../../util/Spotify";
-import jamminLogo from "./images/headphonesLogo.png";
-import recordsLogo from "./images/records.png";
+import jamminLogo from "/headphonesLogo.png";
+import recordsLogo from "/records.png";
 
 function App() {
   // declare state constants

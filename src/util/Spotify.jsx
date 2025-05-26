@@ -32,7 +32,7 @@ const Spotify = {
         window.history.pushState("Access token", null, "/");
         console.log(`access token after timeout is: ${accessToken}`);
         window.location = REDIRECT_URI;
-      }, expiresIn * 4);
+      }, expiresIn * 100000);
 
       return accessToken;
     }
