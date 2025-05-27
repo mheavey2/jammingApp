@@ -33,14 +33,13 @@ export default function Login() {
   if (!logged)
     return (
       <>
-        <div>
-          <h2>Not logged in :(</h2>
+        <div className={styles.loginContainer}>
+          {/* Spotify Login */}
+          <button className={styles.loginButton} onClick={loginHandler}>
+            Login with Spotify
+          </button>
         </div>
-        {/* Spotify Login */}
-        <button className={styles.loginButton} onClick={loginHandler}>
-          Login with Spotify
-        </button>
       </>
     );
-  return <Homepage logged={logged} username={userName} />;
+  return <Homepage logged={logged} userName={userName} />;
 }
