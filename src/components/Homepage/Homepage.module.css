@@ -1,5 +1,45 @@
-.loggedDiv {
-  background-color: pink;
-  border: 3px solid blue;
-  color: orange;
+/* outer container */
+.loggedInContainer {
+  height: 80vh;
+  margin-top: 12em;
+}
+.recordsLogo {
+  width: 6em;
+  height: 6em;
+  margin: 2em 0em;
+  border-radius: 30px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.875em;
+  line-height: 1.1;
+}
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: 600;
+}
+
+.welcomeContainer span {
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3em;
+}
+
+p {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 1.2em 0em;
+  color: var(--accent);
+}
+.searchContainer {
+  background-color: #4b0082;
+  padding: 5px;
+  display: flex;
+  margin: 3em;
+  width: 55%;
 }
