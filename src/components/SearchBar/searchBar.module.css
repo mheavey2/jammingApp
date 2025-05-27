@@ -1,38 +1,56 @@
-/* 
-App colour scheme
-
-Slate Blue:  #6a5acd
-blue-magenta: #433BFF
-Persian blue: #2538be
-Violet:  #49306b
-Indigo: #4b0082
-lilac:  #646cff
-orange:  #ff7f50
-*/
-
 .searchBar {
   width: 100%;
   display: flex;
+  height: 7.5rem;
 }
 
 .searchBar input {
   width: 100%;
-  margin: 1em;
-  color: #2538be;
+  margin: 0.25em;
+  color: var(--background);
   background-color: #f8f7ff;
   padding: 0.7em;
+  font-size: 2em;
 }
 
 .searchBtn {
   border-radius: 3em;
-  width: 12em;
+  width: 10em;
   border: none;
   margin: 1em;
-  font-size: 1em;
+  font-size: 2em;
   font-weight: 500;
-  background-color: #2538be;
+  background-color: var(--primary);
+  color: var(--background);
   cursor: pointer;
 }
 button:hover {
-  background-color: #646cff;
+  background-color: var(--primary);
+  transform: translate(0, -3px);
+  box-shadow: 0 20px 80px -10px var(--primary);
+}
+
+.addShake {
+  animation: shake 2s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  5% {
+    transform: skewX(15deg);
+  }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
 }
