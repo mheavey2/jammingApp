@@ -1,5 +1,7 @@
 import styles from "./Homepage.module.css";
 import recordsLogo from "/records.png";
+import person from "/person.png";
+import externalLinkIcon from "/externalLink.png";
 import SearchBar from "../SearchBar/SearchBar";
 import Spotify from "../../util/Spotify";
 import { useState } from "react";
@@ -11,6 +13,7 @@ export default function Homepage({ userName }) {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistName, setPlayistName] = useState("");
+  const [isHidden, setIsHidden] = useState(true);
 
   // search for track
   const search = (searchInput) => {
@@ -66,28 +69,72 @@ export default function Homepage({ userName }) {
     console.log(`track "${track.name}" added`);
   };
 
+  const toggleMenuVisibility = () => {
+    setIsHidden(!isHidden);
+  };
+
   return (
     <>
-      <main className={styles.loggedInContainer}>
-        <section className={styles.welcomeContainer}>
-          <img
-            src={recordsLogo}
-            alt="Two Records side by side"
-            className={styles.recordsLogo}
-          />
-          <h1>
+      <header className={styles.headerContainer}>
+        {/* searchbar, user account icon (when clicked will have option to logout) with hello NAME, */}
+        <img
+          src={recordsLogo}
+          alt="Two Records side by side"
+          className={styles.recordsLogo}
+        />
+        {/* Search Section */}
+        <div className={styles.searchContainer}>
+          <SearchBar onSearch={search} />
+        </div>
+        <div className={styles.userAccountContainerOuter}>
+          <p id={styles.greeting}>
             Hello <span>{userName}</span>
-          </h1>
+          </p>
+          <div className={styles.userAccountContainer}>
+            <button onClick={toggleMenuVisibility}>
+              <img src={person} alt="icon of a person" />
+            </button>
+          </div>
+        </div>
+        {/* userMenu */}
+        <div className={styles.userMenuOuter}>
+          <div
+            className={
+              isHidden ? styles.userMenuHidden : styles.userMenuVisible
+            }
+          >
+            <ul role="menu">
+              <li role="presentation">
+                <button className={styles.userMenuButton}>
+                  <a href="https://open.spotify.com/">
+                    Go to Spotify
+                    <img
+                      src={externalLinkIcon}
+                      alt="external link"
+                      role="img"
+                    />
+                  </a>
+                </button>
+              </li>
+              <li>
+                <button className={styles.userMenuButton}>
+                  Logout of Spotify
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
 
+      <main className={styles.loggedInContainer}>
+        {/* TODO:remove welcomeContainer if using header - not required */}
+        {/* <section className={styles.welcomeContainer}>
           <p>
             When you are ready, use the search bar to find songs to add to your
             new playlist
           </p>
-        </section>
-        {/* Search Section */}
-        <section className={styles.searchContainer}>
-          <SearchBar onSearch={search} />
-        </section>
+        </section> */}
+
         {/* Results Section */}
         <section className={styles.resultsContainerOuter}>
           <div className={styles.resultsContainer}>

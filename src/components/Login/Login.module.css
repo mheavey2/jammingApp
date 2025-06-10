@@ -6,7 +6,7 @@
   padding-top: 4em;
   height: 80vh;
   width: 100%;
-  margin-top: 15em;
+  margin-top: 5em;
 }
 
 .loginButton {
@@ -20,7 +20,6 @@
   color: var(--background);
   height: 3em;
   width: 18em;
-  margin: 3em;
   transition: transform ease 0.2s, box-shadow ease 0.2s;
 }
 .loginButton:hover {

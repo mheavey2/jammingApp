@@ -34,6 +34,7 @@
   /* width: 100%; */
   background-color: var(--background);
   /* height: 10vh; */
+  position: relative;
 }
 
 img {
