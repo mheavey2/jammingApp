@@ -1,48 +1,58 @@
-/* 
-App colour scheme
-
-Slate Blue:  #6a5acd
-blue-magenta: #433BFF
-Persian blue: #2538be
-Violet:  #49306b
-Indigo: #4b0082
-lilac:  #646cff
-*/
-
 .trackContainer {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   justify-content: space-between;
-  margin: 1em;
+  margin: 3em;
+  max-width: 20em;
+  background-color: var(--background);
+}
+
+.trackContainerPlaylist {
+  flex-direction: row;
 }
 
 .trackImage {
-  max-height: 5em;
-  max-width: 5em;
-  margin: 0.25em;
+  max-height: 18em;
+  border-radius: 40px;
+
+  margin-bottom: 2em;
 }
 .trackContent {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 40px;
+  background-color: var(--background-light);
+  padding: 0.75em;
 }
 .trackInfo {
   margin: 0.3em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--background-light);
 }
 
 .trackInfo h3 {
-  font-size: 1em;
+  font-size: 2.75em;
+  line-height: 1em;
+  background-color: inherit;
 }
 .trackInfo p {
-  font-size: 0.6em;
+  font-size: 1.675em;
+  line-height: 1em;
+  margin: 0.4em 0em 0.6em;
+  background-color: inherit;
 }
-
 .trackSaveButton {
   width: 5em;
-  height: 0.7em;
+  height: 5em;
   border: none;
-  font-size: 1em;
-  font-weight: 900;
-  padding: 0 0 1.2em;
   cursor: pointer;
-  background-color: #2538be;
+  background-color: var(--background-light);
+}
+.buttonImage {
+  height: 3.5em;
+  margin: 0em;
 }

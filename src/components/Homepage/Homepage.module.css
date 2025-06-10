@@ -2,6 +2,9 @@
 .loggedInContainer {
   height: 80vh;
   margin-top: 12em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .recordsLogo {
   width: 6em;
@@ -37,9 +40,33 @@ p {
   color: var(--accent);
 }
 .searchContainer {
-  background-color: #4b0082;
+  background-color: var(--background-light);
   padding: 5px;
   display: flex;
   margin: 3em;
   width: 55%;
+}
+.resultsContainerOuter {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8em;
+  background-color: var(--background);
+}
+
+.resultsContainer {
+  background-color: var(--background-light);
+  padding: 25px;
+  display: flex;
+  /* margin: 1em; */
+  max-width: 60%;
+}
+
+.playlistContainer {
+  max-width: 35%;
+  /* margin: 3.75em; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--background-light);
+  padding: 25px;
 }

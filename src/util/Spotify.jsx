@@ -84,7 +84,9 @@ const Spotify = {
           image: track.album.images[0].url,
           uri: track.uri,
         }));
-        console.log(`trackResults object from spotify fetch: ${trackResults}`);
+        console.log(
+          `trackResults object from spotify fetch: ${trackResults}. total results: ${trackResults.length}`
+        );
         return trackResults;
       });
   },

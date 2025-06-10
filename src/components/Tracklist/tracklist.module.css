@@ -1,20 +1,8 @@
-/* 
-App colour scheme
-
-Slate Blue:  #6a5acd
-blue-magenta: #433BFF
-Persian blue: #2538be
-Violet:  #49306b
-Indigo: #4b0082
-lighter indigo: #5b1092
-lilac:  #646cff
-black: #1a1a1a
-orange: 
-
-*/
-
 .tracklistContainer {
   margin: 1.9em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .emptyStateContainer {
@@ -27,6 +15,6 @@ orange:
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.25;
-  color: #ff7f50;
+  color: var(--text);
   font-style: italic;
 }

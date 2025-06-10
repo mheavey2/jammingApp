@@ -11,6 +11,7 @@
   background-color: #f8f7ff;
   padding: 0.7em;
   font-size: 2em;
+  border-radius: 40px;
 }
 
 .searchBtn {
@@ -31,7 +32,7 @@ button:hover {
 }
 
 .addShake {
-  animation: shake 2s infinite;
+  animation: shake 2s;
 }
 
 @keyframes shake {

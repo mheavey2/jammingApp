@@ -7,11 +7,13 @@ function Playlist(props) {
     props.onChangeName(event.target.value);
   };
 
+  // if (props.playlistTracks.length > 0) {
   return (
-    <div className={styles.playlistContainer}>
-      <h2>
-        Your Playlist <span>{props.playlistName}</span>
-      </h2>
+    <div className={styles.playlistResultsContainer}>
+      <h2>Your Playlist</h2>
+      <h3>
+        Playlist name: <span>{props.playlistName}</span>
+      </h3>
 
       <div className={styles.playlistNameContainer}>
         <input
@@ -28,12 +30,12 @@ function Playlist(props) {
         onClick={props.onRemove}
         inPlaylist={true}
       />
-      <div className={styles.saveToSpotifyContainer}>
-        <button onClick={props.onSave} className={styles.saveToSpotifyButton}>
-          Save <span> {props.playlistName} </span> to Spotify
-        </button>
-      </div>
+
+      <button onClick={props.onSave} className={styles.saveToSpotifyButton}>
+        Save <span> {props.playlistName} </span> to Spotify
+      </button>
     </div>
   );
+  // }
 }
 export default Playlist;

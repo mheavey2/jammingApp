@@ -1,59 +1,56 @@
-/* 
-App colour scheme
-
-Slate Blue:  #6a5acd
-blue-magenta: #433BFF
-Persian blue: #2538be
-Violet:  #49306b
-Indigo: #4b0082
-lilac:  #646cff
-black: #1a1a1a
-
-*/
-
-.playlistContainer {
+.playlistResultsContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  background-color: #49306b;
+  /* width: 100%; */
+  background-color: var(--background);
   align-items: center;
   justify-content: center;
+  font-size: 2em;
 }
-.playlistContainer span {
-  color: #ff7f50;
+.playlistResultsContainer h2 {
+  background-color: inherit;
+}
+.playlistResultsContainer h3 {
+  background-color: inherit;
+  font-size: 0.8em;
+}
+.playlistResultsContainer span {
+  color: var(--accent);
+  background-color: inherit;
 }
 .playlistNameContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+  background-color: inherit;
+  margin: 2em 0em 5em;
 }
 .playlistNameContainer input {
-  background-color: #ffffff;
-  padding: 0.75em;
-  width: 50%;
-  color: #2538be;
+  background-color: var(--text);
+  padding: 0.5em;
+  width: 90%;
+  color: var(--background);
+  border-radius: 40px;
+  font-size: 1em;
 }
-.saveToSpotifyContainer {
-  display: block;
-  align-items: center;
-  justify-content: center;
-}
+
 .saveToSpotifyButton {
-  border-radius: 8px;
+  border-radius: 40px;
   border: 1px solid transparent;
-  padding: 0.5em 2em 2.5em;
+  padding: 0.5em;
   font-size: 1em;
   font-weight: 600;
   margin: 1em 5em;
-  background-color: #2538be;
+  background-color: var(--primary);
+  color: var(--background);
   cursor: pointer;
   transition: border-color 0.25s;
-  width: 50%;
+  width: auto;
   height: 3em;
 }
 
 .saveToSpotifyButton span {
-  color: #ff7f50;
   font-weight: 600;
   font-size: 1em;
 }

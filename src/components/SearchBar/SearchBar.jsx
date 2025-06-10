@@ -10,20 +10,16 @@ function SearchBar(props) {
   };
 
   const search = () => {
-    const searchInput = document.querySelector("#searchInput");
-    if (!searchInput.innerHTML) {
-      searchInput.classList.add(`${styles.addShake}`);
-      setTimeout(removeShakeClass, 500);
-    } else {
-      props.onSearch(searchInput);
-    }
-    console.log(searchInput.classList);
-  };
+    const searchTerm = document.querySelector("#searchInput");
 
-  const removeShakeClass = () => {
-    const searchInput = document.querySelector("#searchInput");
-    searchInput.classList.remove(`${styles.addShake}`);
-    console.log(searchInput.classList);
+    if (!searchInput) {
+      searchTerm.classList.add(`${styles.addShake}`);
+      setTimeout(() => {
+        searchTerm.classList.remove(`${styles.addShake}`);
+      }, 500);
+    }
+    props.onSearch(searchInput);
+    // console.log(searchTerm.classList);
   };
 
   return (
