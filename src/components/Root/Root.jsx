@@ -1,6 +1,7 @@
 import styles from "./root.module.css";
 import jamminLogo from "/headphonesLogo.png";
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
+import Login from "../Login/Login";
 
 export default function Root() {
   return (
@@ -25,8 +26,8 @@ export default function Root() {
             <span className={styles.firstWave}>P</span>
           </h1>
         </header>
-        <Outlet />
       </div>
+      <Login />
     </>
   );
 }
