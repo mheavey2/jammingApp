@@ -34,8 +34,8 @@ export default function Login() {
   if (!logged)
     return (
       <>
-        <JamminBanner />
         <div className={styles.loginContainer}>
+          <JamminBanner />
           {/* Spotify Login */}
           <button className={styles.loginButton} onClick={loginHandler}>
             Login
@@ -43,5 +43,9 @@ export default function Login() {
         </div>
       </>
     );
-  return <Homepage userName={userName} />;
+  return (
+    <div className={styles.homepageContainer}>
+      <Homepage userName={userName} />;
+    </div>
+  );
 }

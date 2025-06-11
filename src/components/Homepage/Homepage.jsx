@@ -1,5 +1,5 @@
 import styles from "./Homepage.module.css";
-import recordsLogo from "/records.png";
+import jamminLogo from "/headphonesLogo.png";
 import person from "/person.png";
 import externalLinkIcon from "/externalLink.png";
 import SearchBar from "../SearchBar/SearchBar";
@@ -82,9 +82,9 @@ export default function Homepage({ userName }) {
       <header className={styles.headerContainer}>
         {/* searchbar, user account icon (when clicked will have option to logout) with hello NAME, */}
         <img
-          src={recordsLogo}
+          src={jamminLogo}
           alt="Two Records side by side"
-          className={styles.recordsLogo}
+          className={styles.logo}
         />
         {/* Search Section */}
         <div className={styles.searchContainer}>
@@ -100,45 +100,31 @@ export default function Homepage({ userName }) {
             </button>
           </div>
         </div>
-        {/* userMenu */}
-        <div className={styles.userMenuOuter}>
-          <div
-            className={
-              isHidden ? styles.userMenuHidden : styles.userMenuVisible
-            }
-          >
-            <ul role="menu">
-              <li role="presentation">
-                <button className={styles.userMenuButton}>
-                  <a href="https://open.spotify.com/">
-                    Go to Spotify
-                    <img
-                      src={externalLinkIcon}
-                      alt="external link"
-                      role="img"
-                    />
-                  </a>
-                </button>
-              </li>
-              <li>
-                <button className={styles.userMenuButton} onClick={logout}>
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
       </header>
+      {/* userMenu */}
+      <div className={styles.userMenuOuter}>
+        <div
+          className={isHidden ? styles.userMenuHidden : styles.userMenuVisible}
+        >
+          <ul role="menu">
+            <li role="presentation">
+              <button className={styles.userMenuButton}>
+                <a href="https://open.spotify.com/">
+                  Go to Spotify
+                  <img src={externalLinkIcon} alt="external link" role="img" />
+                </a>
+              </button>
+            </li>
+            <li>
+              <button className={styles.userMenuButton} onClick={logout}>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <main className={styles.loggedInContainer}>
-        {/* TODO:remove welcomeContainer if using header - not required */}
-        {/* <section className={styles.welcomeContainer}>
-          <p>
-            When you are ready, use the search bar to find songs to add to your
-            new playlist
-          </p>
-        </section> */}
-
         {/* Results Section */}
         <section className={styles.resultsContainerOuter}>
           <div className={styles.resultsContainer}>

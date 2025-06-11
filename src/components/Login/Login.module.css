@@ -1,4 +1,6 @@
-* {
+*,
+::after,
+::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -26,14 +28,13 @@
   align-items: center;
   justify-content: flex-start;
   padding-top: 4em;
-  height: 80vh;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin-top: 5em;
 }
 
 .loginButton {
   align-self: center;
-
   font-size: 2.825em;
   font-weight: 900;
   border-radius: 15px;
@@ -48,4 +49,10 @@
   background-color: var(--primary);
   transform: translate(0, -3px);
   box-shadow: 0 20px 80px -10px var(--primary);
+}
+
+.homepageContainer {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
 }

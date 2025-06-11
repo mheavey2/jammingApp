@@ -1,17 +1,8 @@
 .outerContainer {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* width: 100%; */
   background-color: var(--background);
-  /* height: 10vh; */
   position: relative;
 }
 
-img {
-  margin-top: 3em;
-}
 .loginHeader {
   display: flex;
   flex-direction: column;
@@ -75,5 +66,6 @@ span {
   height: 12em;
   opacity: 75%;
   border-radius: 45px;
+  margin-top: 3em;
   margin-bottom: 4em;
 }
