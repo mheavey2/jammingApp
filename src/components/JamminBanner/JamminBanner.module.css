@@ -1,0 +1,79 @@
+.outerContainer {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* width: 100%; */
+  background-color: var(--background);
+  /* height: 10vh; */
+  position: relative;
+}
+
+img {
+  margin-top: 3em;
+}
+.loginHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  width: 100%;
+  margin-bottom: 3em;
+}
+.loginHeader h1 {
+  font-weight: 700;
+  font-size: 7em;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+span {
+  font-weight: 700;
+  font-size: 1.625em;
+}
+.firstWave {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 1s infinite; /* Animation name, duration, and infinite loop */
+}
+.secondWave {
+  display: inline-block;
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave 2s infinite; /* Animation name, duration, and infinite loop */
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0); /* Original position */
+  }
+  25% {
+    transform: translateY(-10px); /* Move up */
+  }
+  50% {
+    transform: translateY(0); /* Back to original */
+  }
+  75% {
+    transform: translateY(10px); /* Move down */
+  }
+}
+
+.jamminLoginLogo {
+  width: 12em;
+  height: 12em;
+  opacity: 75%;
+  border-radius: 45px;
+  margin-bottom: 4em;
+}

@@ -2,6 +2,7 @@ import styles from "./Login.module.css";
 import Spotify from "../../util/Spotify";
 import { useEffect, useState } from "react";
 import Homepage from "../HomePage/Homepage";
+import JamminBanner from "../JamminBanner/JamminBanner";
 
 export default function Login() {
   const [logged, setLogged] = useState("");
@@ -33,13 +34,14 @@ export default function Login() {
   if (!logged)
     return (
       <>
+        <JamminBanner />
         <div className={styles.loginContainer}>
           {/* Spotify Login */}
           <button className={styles.loginButton} onClick={loginHandler}>
-            Login with Spotify
+            Login
           </button>
         </div>
       </>
     );
-  return <Homepage logged={logged} userName={userName} />;
+  return <Homepage userName={userName} />;
 }

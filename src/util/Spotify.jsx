@@ -12,6 +12,14 @@ const Spotify = {
     console.log("authentication gotten");
   },
 
+  resetToken() {
+    accessToken = "";
+    window.history.pushState("Access token", null, "/");
+    console.log(`access token after timeout is: ${accessToken}`);
+    window.location = REDIRECT_URI;
+    return accessToken;
+  },
+
   checkAuthentication() {
     //check if access token already available
     if (accessToken) {
@@ -28,22 +36,11 @@ const Spotify = {
 
       // set access token to empty variable after duration specified in the url so app doesn't try grabbing access token after it has expired
       window.setTimeout(() => {
-        accessToken = "";
-        window.history.pushState("Access token", null, "/");
-        console.log(`access token after timeout is: ${accessToken}`);
-        window.location = REDIRECT_URI;
+        resetToken();
       }, expiresIn * 100000);
 
       return accessToken;
     }
-  },
-
-  resetToken() {
-    accessToken = "";
-    window.history.pushState("Access token", null, "/");
-    console.log(`access token after timeout is: ${accessToken}`);
-    window.location = REDIRECT_URI;
-    return accessToken;
   },
 
   // get user name data from Spotify
