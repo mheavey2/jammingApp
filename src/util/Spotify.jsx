@@ -7,7 +7,7 @@ const searchBaseURL = "https://api.spotify.com/v1/search?q=";
 const Spotify = {
   // need access token to search Spotify.
   getAuth() {
-    const tokenURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
+    const tokenURL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&show_dialog=true&scope=playlist-modify-public&redirect_uri=${REDIRECT_URI}`;
     window.location = tokenURL;
     console.log("authentication gotten");
   },
@@ -36,6 +36,14 @@ const Spotify = {
 
       return accessToken;
     }
+  },
+
+  resetToken() {
+    accessToken = "";
+    window.history.pushState("Access token", null, "/");
+    console.log(`access token after timeout is: ${accessToken}`);
+    window.location = REDIRECT_URI;
+    return accessToken;
   },
 
   // get user name data from Spotify

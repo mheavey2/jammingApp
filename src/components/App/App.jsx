@@ -11,11 +11,12 @@ import SearchResults from "../SearchResults/SearchResults";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />}>
-      <Route index element={<Login />}></Route>
-      <Route path="home" element={<Homepage />}></Route>
-      <Route path="search" element={<SearchResults />}></Route>
-    </Route>
+    <>
+      <Route path="/" element={<Root />}></Route>
+      <Route path="/login" element={<Login />}></Route>
+      <Route path="/home" element={<Homepage />}></Route>
+      <Route path="/search" element={<SearchResults />}></Route>
+    </>
   )
 );
 
