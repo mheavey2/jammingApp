@@ -15,6 +15,10 @@ export default function Homepage({ userName }) {
   const [playlistName, setPlayistName] = useState("");
   const [isHidden, setIsHidden] = useState(true);
 
+  const logout = () => {
+    Spotify.resetToken();
+  };
+
   // search for track
   const search = (searchInput) => {
     Spotify.searchTracks(searchInput)
@@ -117,8 +121,8 @@ export default function Homepage({ userName }) {
                 </button>
               </li>
               <li>
-                <button className={styles.userMenuButton}>
-                  Logout of Spotify
+                <button className={styles.userMenuButton} onClick={logout}>
+                  Logout
                 </button>
               </li>
             </ul>
