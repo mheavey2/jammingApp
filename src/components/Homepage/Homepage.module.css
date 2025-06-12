@@ -18,7 +18,7 @@
 .searchContainer {
   background-color: var(--background-light);
   display: flex;
-  width: 50rem;
+  width: 30rem;
 }
 
 #greeting {

@@ -1,5 +1,5 @@
 .searchBar {
-  width: 100%;
+  width: 40em;
   display: flex;
   height: 4rem;
 }
@@ -19,10 +19,11 @@
 }
 
 .searchBtn {
-  border-radius: 3em;
-  width: 10em;
+  border-radius: 20px;
+  width: 5em;
+  height: 2.5em;
   border: none;
-  margin: 1em;
+  margin-top: 0.3em;
   font-size: 1.2em;
   font-weight: 500;
   background-color: var(--primary);
@@ -33,6 +34,13 @@
   background-color: var(--primary);
   transform: translate(0, -3px);
   box-shadow: 0 20px 80px -10px var(--primary);
+}
+.searchIcon {
+  height: 2em;
+  width: 2em;
+  background-color: transparent;
+  margin-top: 0.4em;
+  /* margin-right: 1em; */
 }
 
 .addShake {

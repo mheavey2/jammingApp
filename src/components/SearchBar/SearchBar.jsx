@@ -33,7 +33,12 @@ function SearchBar(props) {
           onChange={inputChange}
         ></input>
         <button className={styles.searchBtn} onClick={search}>
-          Search
+          <img
+            className={styles.searchIcon}
+            src="/magnifyingGlass.svg"
+            alt="search icon"
+          />
+          {/* Search */}
         </button>
       </div>
     </>
