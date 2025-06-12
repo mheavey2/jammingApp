@@ -29,7 +29,7 @@
   color: var(--background);
   cursor: pointer;
 }
-button:hover {
+.searchBtn:hover {
   background-color: var(--primary);
   transform: translate(0, -3px);
   box-shadow: 0 20px 80px -10px var(--primary);

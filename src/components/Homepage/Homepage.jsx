@@ -80,7 +80,6 @@ export default function Homepage({ userName }) {
   return (
     <>
       <header className={styles.headerContainer}>
-        {/* searchbar, user account icon (when clicked will have option to logout) with hello NAME, */}
         <img
           src={jamminLogo}
           alt="Two Records side by side"
@@ -95,7 +94,10 @@ export default function Homepage({ userName }) {
             Hello <span>{userName}</span>
           </p>
           <div className={styles.userAccountContainer}>
-            <button onClick={toggleMenuVisibility}>
+            <button
+              onClick={toggleMenuVisibility}
+              className={styles.toggleUserMenuBtn}
+            >
               <img src={person} alt="icon of a person" />
             </button>
           </div>
@@ -106,8 +108,8 @@ export default function Homepage({ userName }) {
         <div
           className={isHidden ? styles.userMenuHidden : styles.userMenuVisible}
         >
-          <ul role="menu">
-            <li role="presentation">
+          <ul role="menu" id={styles.userMenuList}>
+            <li role="presentation" className={styles.userMenuItem}>
               <button className={styles.userMenuButton}>
                 <a href="https://open.spotify.com/">
                   Go to Spotify
@@ -115,7 +117,7 @@ export default function Homepage({ userName }) {
                 </a>
               </button>
             </li>
-            <li>
+            <li className={styles.userMenuItem}>
               <button className={styles.userMenuButton} onClick={logout}>
                 Logout
               </button>

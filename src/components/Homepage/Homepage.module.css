@@ -55,6 +55,17 @@
   display: flex;
   justify-content: flex-end;
 }
+#userMenuList {
+  background-color: var(--background-light);
+  border-radius: 20px;
+  width: 8rem;
+  list-style: none;
+}
+
+.userMenuItem {
+  background-color: var(--background-light);
+  border-radius: 20px;
+}
 
 .userMenuHidden {
   display: none;
@@ -65,62 +76,55 @@
   z-index: 9999;
   position: absolute;
   inset: 0px 0px auto auto;
-  transform: translate3d(-50px, px, 0px);
-  width: 12rem;
+  transform: translate3d(-30px, 5px, 0px);
+  width: 8rem;
+  border-radius: 20px;
 }
 
-ul {
-  list-style: none;
-}
-
-.userAccountContainer button {
+.toggleUserMenuBtn {
   height: 4rem;
   width: 4rem;
   background-color: var(--background);
   border: none;
-  font-size: 0.8em;
   color: var(--accent);
   text-align: left;
   border-radius: 20px;
 }
 
-.userAccountContainer button:hover {
-  text-decoration: underline;
+.userMenuButton:hover {
   background-color: var(--background-light);
-}
-.userAccountContainer a:hover {
-  color: var(--background);
   text-decoration: underline;
+  color: var(--secondary);
+}
+.userMenuButton a:hover {
+  background-color: var(--background-light);
+  text-decoration: underline;
+  color: var(--secondary);
 }
 
 .userMenuButton {
-  height: 3rem;
-  width: 14rem;
+  height: 2rem;
+  width: 7rem;
   color: var(--accent);
-  background-color: var(--background);
+  background-color: var(--background-light);
   text-align: left;
   border: none;
+  border-radius: 20px;
   padding-left: 0.6em;
-  /* border: solid 1px var(--secondary); */
-  font-size: 1.2em;
+  font-size: 0.7rem;
 }
 .userMenuButton a {
   background-color: inherit;
   text-decoration: none;
-  font-size: 1.2rem;
-  color: var(--accent);
-}
-.userMenuVisible span {
-  background-color: inherit;
-  font-size: 1.2em;
+  font-size: 0.7rem;
   color: var(--accent);
 }
 .userMenuVisible img {
   background-color: transparent;
-  height: 1.2em;
-  width: 1.2em;
+  height: 1em;
+  width: 1em;
 
-  margin-left: 2.5em;
+  margin-left: 2em;
 }
 
 /* outer container */
@@ -143,13 +147,11 @@ ul {
   background-color: var(--background-light);
   padding: 25px;
   display: flex;
-  /* margin: 1em; */
   max-width: 60%;
 }
 
 .playlistContainer {
   max-width: 35%;
-  /* margin: 3.75em; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
