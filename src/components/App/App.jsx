@@ -8,6 +8,7 @@ import {
 import Homepage from "../HomePage/Homepage";
 import Login from "../Login/Login";
 import SearchResults from "../SearchResults/SearchResults";
+import PlaylistHome from "../playlistHome/PlaylistHome";
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +16,7 @@ const appRouter = createBrowserRouter(
       <Route path="/" element={<Login />}></Route>
       <Route path="/home" element={<Homepage />}></Route>
       <Route path="/search" element={<SearchResults />}></Route>
+      <Route path="playlists" element={<PlaylistHome />}></Route>
     </>
   )
 );

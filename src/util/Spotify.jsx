@@ -38,7 +38,7 @@ const Spotify = {
       window.setTimeout(() => {
         resetToken();
       }, expiresIn * 100000);
-
+      console.log(`access token: ${accessToken}`);
       return accessToken;
     }
   },
@@ -66,7 +66,7 @@ const Spotify = {
         const userName = data.display_name;
         //console.log(`user name is: ${userName}`);
         userId = data.id;
-        //console.log(`user ID is: ${userId}`);
+        console.log(`user ID is: ${userId}`);
         return userName;
       });
   },
@@ -146,6 +146,31 @@ const Spotify = {
         } else {
           return false;
         }
+      });
+  },
+
+  async getPlaylists() {
+    const playlistsEndpoint = `https://api.spotify.com/v1/users/${userId}/playlists?offset=0&limit=20`;
+
+    return fetch(playlistsEndpoint, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${accessToken}` },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const totalPlaylistsCount = data.total;
+        const playlistsResponse = data.items.map((playlist) => ({
+          name: playlist.name,
+          owner: playlist.owner,
+          images: playlist.images,
+          tracks: playlist.tracks,
+          href: playlist.href,
+        }));
+        console.log(
+          `playlistResults object from spotify fetch: ${playlistsResponse}. `
+        );
+        console.log(`total playlists: ${totalPlaylistsCount}`);
+        return playlistsResponse;
       });
   },
 };

@@ -7,6 +7,7 @@ import Spotify from "../../util/Spotify";
 import { useState } from "react";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
+import PlaylistsHome from "../PlaylistHome/PlaylistHome";
 
 export default function Homepage({ userName }) {
   // declare state constants
@@ -142,6 +143,10 @@ export default function Homepage({ userName }) {
             />
           </div>
         </section>
+        <div></div>
+        <div>
+          <PlaylistsHome />
+        </div>
       </main>
     </>
   );

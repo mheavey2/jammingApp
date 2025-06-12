@@ -38,7 +38,6 @@ function SearchBar(props) {
             src="/magnifyingGlass.svg"
             alt="search icon"
           />
-          {/* Search */}
         </button>
       </div>
     </>

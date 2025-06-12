@@ -11,8 +11,6 @@ function Track(props) {
     }
   };
 
-  const toggleTrackContainerStyles = () => {};
-
   return (
     <div className={styles.trackContainer}>
       <div className={styles.trackContent}>
