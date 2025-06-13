@@ -28,6 +28,7 @@ function SearchBar(props) {
         <input
           id="searchInput"
           type="text"
+          autocomplete="off"
           placeholder="Enter a Song, Album or Artist"
           className={styles.inputField}
           onChange={inputChange}
