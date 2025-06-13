@@ -5,6 +5,13 @@ function Tracklist(props) {
   if (props.tracks.length > 0) {
     return (
       <div className={styles.tracklistContainer}>
+        <div className={styles.tracklistHeader}>
+          <h5>Title</h5>
+          <div id={styles.tracklistHeaderOtherInfo}>
+            <h5>Album</h5>
+            <h5>Add to Playlist</h5>
+          </div>
+        </div>
         {/* map method to render a set of Track components */}
         {props.tracks.map((track) => {
           return (

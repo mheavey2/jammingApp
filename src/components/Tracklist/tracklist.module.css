@@ -1,20 +1,40 @@
 .tracklistContainer {
-  margin: 1.9em;
+  /* margin: 1.9em; */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
+.tracklistHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.tracklistHeader h5 {
+  font-size: 1.4em;
+  color: var(--secondary);
+}
+
+#tracklistHeaderOtherInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
 .emptyStateContainer {
-  width: 75%;
-  height: 80%;
-  padding: 0 em;
+  margin-top: 3em;
+  align-items: center;
+  height: 100vh;
 }
 
 .emptyStateResults {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1.25;
   color: var(--text);
   font-style: italic;
+  opacity: 0.75;
 }
