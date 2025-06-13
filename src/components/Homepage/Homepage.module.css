@@ -129,32 +129,38 @@
 
 /* outer container */
 .loggedInContainer {
-  height: 80vh;
-  margin-top: 12em;
+  /* height: 80vh; */
+  margin-top: 8rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
+/* search results & playlist outer container */
 .resultsContainerOuter {
   display: flex;
   flex-direction: row;
-  margin-top: 8em;
+  width: 100%;
+  justify-content: space-between;
   background-color: var(--background);
+  padding: 1rem;
 }
 
 .resultsContainer {
   background-color: var(--background-light);
   padding: 25px;
   display: flex;
-  max-width: 60%;
+  width: 74%;
+  border-radius: 20px;
 }
 
 .playlistContainer {
-  max-width: 35%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background-color: var(--background-light);
   padding: 25px;
+  border-radius: 20px;
 }

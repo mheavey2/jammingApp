@@ -130,9 +130,6 @@ export default function Homepage({ userName }) {
       <main className={styles.loggedInContainer}>
         {/* Results Section */}
         <section className={styles.resultsContainerOuter}>
-          <div className={styles.resultsContainer}>
-            <SearchResults searchResults={searchResults} onAdd={addTrack} />
-          </div>
           <div className={styles.playlistContainer}>
             <Playlist
               playlistName={playlistName}
@@ -142,8 +139,10 @@ export default function Homepage({ userName }) {
               onSave={savePlaylist}
             />
           </div>
+          <div className={styles.resultsContainer}>
+            <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          </div>
         </section>
-        <div></div>
         <div>
           <PlaylistsHome />
         </div>
