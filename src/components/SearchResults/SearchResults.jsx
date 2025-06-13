@@ -4,10 +4,10 @@ import Tracklist from "../Tracklist/Tracklist";
 function SearchResults(props) {
   return (
     <div className={styles.searchResultsContainer}>
-      <h2>Most Popular Search Results </h2>
+      <h2>Your Search Results </h2>
       <Tracklist
         trackBtnAction="Add"
-        emptyState="Nothing to show. Try searching a song"
+        emptyState="Use the searchbar to find music"
         tracks={props.searchResults}
         onClick={props.onAdd}
         inPlaylist={false}
