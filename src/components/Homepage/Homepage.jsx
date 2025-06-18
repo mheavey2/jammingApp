@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
-export default function Homepage({ userName }) {
+function Homepage({ userName }) {
   // declare state constants
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -147,3 +147,5 @@ export default function Homepage({ userName }) {
     </>
   );
 }
+
+export default Homepage;
