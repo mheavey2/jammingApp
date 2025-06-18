@@ -1,8 +1,8 @@
 .tracklistContainer {
-  /* margin: 1.9em; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .tracklistHeader {
@@ -10,9 +10,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 .tracklistHeader h5 {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   color: var(--secondary);
 }
 
@@ -25,9 +26,10 @@
 }
 
 .emptyStateContainer {
-  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
   align-items: center;
-  height: 100vh;
 }
 
 .emptyStateResults {

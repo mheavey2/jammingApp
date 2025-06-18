@@ -4,10 +4,9 @@ import person from "/person.png";
 import externalLinkIcon from "/externalLink.png";
 import SearchBar from "../SearchBar/SearchBar";
 import Spotify from "../../util/Spotify";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
-import PlaylistsHome from "../PlaylistHome/PlaylistHome";
 
 export default function Homepage({ userName }) {
   // declare state constants
@@ -143,9 +142,7 @@ export default function Homepage({ userName }) {
             <SearchResults searchResults={searchResults} onAdd={addTrack} />
           </div>
         </section>
-        <div>
-          <PlaylistsHome />
-        </div>
+        <div></div>
       </main>
     </>
   );

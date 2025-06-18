@@ -73,7 +73,7 @@ const Spotify = {
 
   // fetch the song track data we're searching from the API.
   async searchTracks(searchInput) {
-    const searchEndpoint = `${searchBaseURL}${searchInput}&type=track&limit=10`;
+    const searchEndpoint = `${searchBaseURL}${searchInput}&type=track&limit=50`;
     //use this to fetch data searched for
     return fetch(searchEndpoint, {
       method: "GET",
@@ -146,31 +146,6 @@ const Spotify = {
         } else {
           return false;
         }
-      });
-  },
-
-  async getPlaylists() {
-    const playlistsEndpoint = `https://api.spotify.com/v1/users/${userId}/playlists?offset=0&limit=20`;
-
-    return fetch(playlistsEndpoint, {
-      method: "GET",
-      headers: { Authorization: `Bearer ${accessToken}` },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const totalPlaylistsCount = data.total;
-        const playlistsResponse = data.items.map((playlist) => ({
-          name: playlist.name,
-          owner: playlist.owner,
-          images: playlist.images,
-          tracks: playlist.tracks,
-          href: playlist.href,
-        }));
-        console.log(
-          `playlistResults object from spotify fetch: ${playlistsResponse}. `
-        );
-        console.log(`total playlists: ${totalPlaylistsCount}`);
-        return playlistsResponse;
       });
   },
 };

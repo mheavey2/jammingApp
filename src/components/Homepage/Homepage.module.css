@@ -140,7 +140,7 @@
 /* search results & playlist outer container */
 .resultsContainerOuter {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   justify-content: space-between;
   background-color: var(--background);
@@ -151,12 +151,10 @@
   background-color: var(--background-light);
   padding: 25px;
   display: flex;
-  width: 74%;
   border-radius: 20px;
 }
 
 .playlistContainer {
-  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

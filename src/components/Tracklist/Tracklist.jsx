@@ -9,7 +9,7 @@ function Tracklist(props) {
           <h5>Title</h5>
           <div id={styles.tracklistHeaderOtherInfo}>
             <h5>Album</h5>
-            <h5>Add to Playlist</h5>
+            <h5>+/- from Playlist</h5>
           </div>
         </div>
         {/* map method to render a set of Track components */}

@@ -1,7 +1,8 @@
 .trackContainer {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
   background-color: var(--background);
 }
@@ -11,8 +12,8 @@
 }
 
 .trackImage {
-  height: 6em;
-  margin-bottom: 2em;
+  height: 6rem;
+  margin-bottom: 2rem;
 }
 .trackContent {
   display: flex;
@@ -20,7 +21,7 @@
   align-items: flex-start;
   justify-content: space-between;
   background-color: var(--background-light);
-  padding: 1em;
+  padding: 1rem;
   width: 100%;
 }
 
@@ -32,7 +33,7 @@
   width: 30%;
 }
 .trackInfo {
-  margin-left: 3em;
+  margin-left: 3rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -41,14 +42,14 @@
 }
 
 .trackInfo h3 {
-  font-size: 2em;
+  font-size: 2rem;
   line-height: 1em;
   background-color: inherit;
-  margin-bottom: 0.625em;
+  margin-bottom: 0.625rem;
 }
 .trackInfo p,
 .albumInfo p {
-  font-size: 1.7em;
+  font-size: 1.7rem;
   background-color: var(--background-light);
   opacity: 0.625;
 }

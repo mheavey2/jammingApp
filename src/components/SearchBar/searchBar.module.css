@@ -4,7 +4,7 @@
   height: 4rem;
 }
 
-.searchBar input {
+.inputField {
   width: 100%;
   color: var(--text);
   background-color: var(--background-light);
@@ -13,12 +13,12 @@
   border-radius: 40px;
   border: none;
 }
-.searchBar input:focus {
+.inputField:focus {
   outline: 4px solid var(--accent);
   background-color: var(--background-light);
   caret-color: var(--accent);
 }
-::placeholder {
+.inputField::placeholder {
   color: var(--text);
   opacity: 0.5;
 }

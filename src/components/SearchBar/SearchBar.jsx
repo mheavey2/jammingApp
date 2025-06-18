@@ -19,7 +19,6 @@ function SearchBar(props) {
       }, 500);
     }
     props.onSearch(searchInput);
-    // console.log(searchTerm.classList);
   };
 
   return (
@@ -28,7 +27,7 @@ function SearchBar(props) {
         <input
           id="searchInput"
           type="text"
-          autocomplete="off"
+          autoComplete="off"
           placeholder="Enter a Song, Album or Artist"
           className={styles.inputField}
           onChange={inputChange}
