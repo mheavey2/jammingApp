@@ -1,14 +1,14 @@
-import styles from "./Homepage.module.css";
+import styles from "./Home.module.css";
 import jamminLogo from "/headphonesLogo.png";
 import person from "/person.png";
 import externalLinkIcon from "/externalLink.png";
 import SearchBar from "../SearchBar/SearchBar";
 import Spotify from "../../util/Spotify";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
-function Homepage({ userName }) {
+function Home({ userName }) {
   // declare state constants
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -148,4 +148,4 @@ function Homepage({ userName }) {
   );
 }
 
-export default Homepage;
+export default Home;
