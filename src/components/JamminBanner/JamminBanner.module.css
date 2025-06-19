@@ -1,6 +1,10 @@
 .outerContainer {
   background-color: var(--background);
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .loginHeader {
@@ -14,9 +18,9 @@
 }
 .loginHeader h1 {
   font-weight: 700;
-  font-size: 7em;
+  font-size: 5rem;
   background: linear-gradient(120deg, var(--primary), var(--accent));
-
+  white-space: nowrap;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
