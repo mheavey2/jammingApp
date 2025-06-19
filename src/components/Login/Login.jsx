@@ -45,7 +45,7 @@ export default function Login() {
     );
   return (
     <div className={styles.homepageContainer}>
-      <Home userName={userName} />;
+      <Home userName={userName} />
     </div>
   );
 }
