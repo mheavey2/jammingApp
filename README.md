@@ -21,7 +21,7 @@ App can be initialised by running `$ npm dev` in the project root folder.
 
 Once initialised the user is presented with the app landing page
 
-<img src="./images/jamminAppLoginScreen.png" alt="login page" width="400" height="auto"></img>
+<img src="./images/JamminAppLoginScreen.png" alt="login page" width="400" height="auto"></img>
 
 Clicking on the 'Login with Spotify' button redirects the user to the Spotify login page to enter their credentials. Once logged in the user is redirected to to the apps main interface.
 
