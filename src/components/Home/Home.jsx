@@ -142,7 +142,6 @@ function Home({ userName }) {
             <SearchResults searchResults={searchResults} onAdd={addTrack} />
           </div>
         </section>
-        <div></div>
       </main>
     </>
   );
