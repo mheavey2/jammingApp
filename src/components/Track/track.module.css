@@ -72,4 +72,5 @@
 .buttonImage {
   height: 3.5em;
   margin: 0em;
+  background-color: var(--background-light);
 }
