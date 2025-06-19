@@ -1,7 +1,7 @@
 import styles from "./Login.module.css";
 import Spotify from "../../util/Spotify";
 import { useEffect, useState } from "react";
-import Homepage from "../HomePage/Homepage";
+import Home from "../Home/Home";
 import JamminBanner from "../JamminBanner/JamminBanner";
 
 export default function Login() {
@@ -45,7 +45,7 @@ export default function Login() {
     );
   return (
     <div className={styles.homepageContainer}>
-      <Homepage userName={userName} />;
+      <Home userName={userName} />;
     </div>
   );
 }
