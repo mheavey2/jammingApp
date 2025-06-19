@@ -42,14 +42,14 @@
 }
 
 .trackInfo h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1em;
   background-color: inherit;
   margin-bottom: 0.625rem;
 }
 .trackInfo p,
 .albumInfo p {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   background-color: var(--background-light);
   opacity: 0.625;
 }
